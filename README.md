@@ -1,7 +1,29 @@
 # DisasterResponse
 Analyze message data for disaster response
 
-## File Description
+## 
+
+## Repository Structure and File Description
+
+```markdown
+├── app
+│   ├── templates
+│   │   ├── go.html                       # website page after a query has been made
+│   │   └── master.html                   # website homepage
+│   ├── app.py                            # python file to get the flask web app running
+├── data
+│   ├── disasterMessages.db               # distaster messages database
+│   ├── disaster_categories.csv           # categories csv file
+│   ├── disaster_messages.csv             # messages csv file
+│   └── process_data.py                   # python script to process data for model training
+├── models
+│   └── train_classifier.py               # python script that builds, train, evaluate, and save model. 
+├── ETL_Pipeline_Preparation.ipynb        # Data processing shown in a jupyter notebook
+├── ML_Pipeline.ipynb                     # Model training shown in a jupyter notebook
+├── README.md                             # Readme file            
+
+```
+
 
 ## Installations
 
