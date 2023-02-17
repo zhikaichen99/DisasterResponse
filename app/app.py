@@ -39,12 +39,15 @@ model = joblib.load("../models/model.pkl")
 def index():
     
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+
+    # Extract data for visuals
+    df_cats = df.drop(['id', 'message', 'original', 'genre'], axis = 1)
+    category_counts = df_cats.sum(axis = 0)
+    category_names = df_cats.columns
     
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
     graphs = [
         {
             'data': [
@@ -63,8 +66,26 @@ def index():
                     'title': "Genre"
                 }
             }
+        },
+        {
+            'data': [
+                Bar(
+                    x = category_names,
+                    y = category_counts
+                )
+            ],
+            'layout': {
+                'title': 'Distribution of Message Categories',
+                'yaxis':{
+                    'title': 'Count'
+                },
+                'axis': {
+                    'title': 'Category'
+                }
+            }
         }
     ]
+
     
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
