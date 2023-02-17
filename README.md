@@ -19,3 +19,9 @@ python data/process_data.py data/disaster_messages.csv data/disaster_categories.
 ```
 python models/train_classifier.py data/disasterMessages.db models/model.pkl
 ```
+4. Navigate to the `app` directory
+
+5. Run the following command in the terminal top run the web app:
+```
+python app.py
+```
