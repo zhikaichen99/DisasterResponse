@@ -22,7 +22,10 @@ from sklearn.model_selection import GridSearchCV
 
 from sqlalchemy import create_engine
 
-nltk.download(['punkt', 'wordnet'])
+nltk.download(['punkt', 'wordnet', 'stopwords'])
+
+from nltk.corpus import stopwords
+
 
 def load_data(database_filename):
     """
@@ -62,8 +65,9 @@ def tokenize(text):
 
     clean_tokens = []
     for token in tokens:
-        clean_token = lemmatizer.lemmatize(token).strip()
-        clean_tokens.append(clean_token)
+        if token not in stopwords.words('english'):
+            clean_token = lemmatizer.lemmatize(token).strip()
+            clean_tokens.append(clean_token)
     
     return clean_tokens
 
