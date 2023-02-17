@@ -24,8 +24,19 @@ Analyze message data for disaster response
 
 ```
 
-
 ## Installations
+
+To run this project, the following libraries and packages must be installed:
+
+* Pandas
+* Natural Language Toolit (NLTK)
+* SQLAlchemy
+* Pickle
+* Sys
+* Scikit-learn
+* Json
+* Plotly
+* Flask
 
 ## How to Interact with the Project
 
