@@ -1,7 +1,13 @@
 # DisasterResponse
-Analyze message data for disaster response
 
-## 
+Develop a machine learning model to classify distaster messages and build a web application that can categorize incoming messages into their corresponding topics or categories.
+
+## Project Motivation
+
+This project aims to create a practical application that can assist during a disaster by categorizing incoming messages and providing quick and efficient responses.
+
+The project will start with ETL process where we preprocess, clean, transform and store the data in a database. Next we will train a machine learning model that can predict the category of a message. We will then deploy the trained model using Flask.
+
 
 ## Repository Structure and File Description
 
