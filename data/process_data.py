@@ -43,13 +43,13 @@ def clean_data(df):
     # Rename the columns of the categories dataframe
     categories.columns = category_column_names
 
-    # Convert category values to 0 and 1. A 0 indicating the message does not belong to the category
+    # Convert category values to 0 and 1. A 0 inidicating the message does not belong to that category and 1 indicating it does belong to that category
     for column in categories:
-        # Set each value to be the last character of the string (which is the number)
-        categories[column] = categories[column].apply(lambda x: x[-1])
-        # Convert column from string to numeric
+        # set each value to be the last character of the string (which is the number). Replaces value with 0 if it is not 0 or 1
+        categories[column] = categories[column].apply(lambda x: '0' if not x[-1].isdigit() or int(x[-1]) not in [0, 1] else x[-1])
+
+        # convert column from string to numeric
         categories[column] = pd.to_numeric(categories[column])
-        categories[column] = df[column].apply(lambda x: 0 if x != 1 else 1)
 
     # Drop the original categories column from df
     df.drop('categories', axis = 1, inplace = True)
